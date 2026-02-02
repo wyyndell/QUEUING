@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="image/logo.png" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!--Header -->
+    <div class="background-image">
+        <video src="image/video-background.mp4" autoplay loop muted poster="image/background3.jpg" aria-label="Customizable">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- Content -->
+    <div class="container content" aria-label="main-content">
+        <div class="nav-bar">
+            <div class="datetime">
+                <div class="date-time">
+                    <span class="date"></span>
+                    <span class="year"></span>
+                </div>
+                <div class="time-day">
+                    <span class="time"></span>
+                    <span class="day"></span>
+                </div>
+            </div>
+        </div>
+        <h2 class="header-title"> Welcome to <br> Unisan Campus</h2>
+        <div class="btn">
+            <a href="offices.html" id="proceedLink">
+                <span class="touch">Tap the screen to start</span>
+            </a>
+            <div class="overlay" onclick="proceedToNextPage()"></div>
+        </div>
+    </div>
+    <div class="guide">
+        <div class="guide-wrapper">
+            <div class="tooltip-guide">Need help? Touch here.</div>
+                <div class="guide-icon">
+                    <i class="fa-solid fa-question"></i>
+                    <span class="text">Help</span>
+                </div>
+                <div class="guide-modal">
+                    <div class="input">
+                        <button class="value" id="guideButton">Guide</button>
+                        <button class="value" id="aboutButton">About</button>
+                        <!-- <button class="value" id="infoButton">Info</button> -->
+                        <button class="value" id="devButton">Developers</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-content " >
+            <div class="modal-content" id="modal" style="display: none;">
+                <div class="nav" id="guideContent">
+                    <div class="nav-content">
+                        <div class="nav-modal">
+                            <span class="nav-titles">Guide</span>
+                            <div class="row-modal">
+                                <!-- <span class="nav-title" data-target="guideContent">Guide</span> -->
+                                <span class="nav-title" data-target="aboutContent">About</span>
+                                <span class="nav-title" data-target="devContent">Developers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <div class="content-description">
+                            <span class="guide-images">
+                                <img src="image/3d-casual-life-young-man-with-tablet.png" alt="guide">
+                            </span>
+                            <div class="description-content">
+                                <div class="guides">
+                                    <div class="guide-subtle">How to use <span style="color: var(--primary-clr);">Campus kiosk?</span></div>
+                                    <div class="multi-steps">
+                                        <div class="row-step">
+                                            <div class="step">
+                                                <div class="circle">1</div>
+                                                <span class="descriptions">Tap the screen to begin.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">2</div>
+                                                <span class="descriptions">Choose the office.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">3</div>
+                                                <span class="descriptions">Pick the service.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">4</div>
+                                                <span class="descriptions">Fill in your details.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">5</div>
+                                                <span class="descriptions">Select client type.</span>
+                                            </div>
+                                        </div>
+                                        <div class="column-step">
+                                            <div class="step">
+                                                <div class="circle">6</div>
+                                                <span class="descriptions">Get and enter your number.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">7</div>
+                                                <span class="descriptions">Review your info.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">8</div>
+                                                <span class="descriptions">Proceed to the waiting area.</span>
+                                            </div>
+                                            <div class="step">
+                                                <div class="circle">9</div>
+                                                <span class="descriptions">Watch the monitor.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav" id="aboutContent" style="display:none;">
+                    <div class="nav-content">
+                        <div class="nav-modal">
+                            <span class="nav-titles">About</span>
+                            <div class="row-modal">
+                                <span class="nav-title" data-target="guideContent">Guide</span>
+                                <!-- <span class="nav-title" data-target="aboutContent">About</span> -->
+                                <span class="nav-title" data-target="devContent">Developers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <div class="content-description">
+                            <span class="guide-images-about">
+                                <img src="image/3d-casual-life-girl-holding-laptop-and-having-an-idea.png" alt="guide">
+                            </span>
+                            <div class="about-description">
+                                <div class="about">
+                                    <span class="abouts">Campus Queuing Kiosk</span>
+                                    <span class="abouts-description">The PUP Campus Queuing Kiosk is designed to streamline and enhance the experience for students, visitors, parents, and alumni. This modern system allows efficient handling of various campus transactions and office services, ensuring a smooth and organized process.</span>
+                                </div>
+                                <div class="about">
+                                    <span class="abouts">Why Choose Us?</span>
+                                    <span class="chooseUs-description">At PUP, we value your time and aim to make every campus visit efficient and stress-free. Our queuing kiosks reflect our dedication to innovation and excellent customer service. By combining advanced technology with intuitive design, we enhance your campus experience, ensuring quick and effective assistance whenever you need it.</span>
+                                </div>
+                                <div class="about">
+                                    <span class="abouts">Contact Us</span>
+                                    <span class="contactUs-description">For more information about the PUP Campus Queuing Kiosk or to provide feedback, please contact us at <span style="color: var(--secondary-clr); font-weight: 500;">itpreneur@gmail.com</span> or visit our Facebook page  <span style="color: var(--secondary-clr); font-weight: 500;">Itpreneur</span>.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav" id="devContent" style="display:none;">
+                    <div class="nav-content">
+                        <div class="nav-modal">
+                            <span class="nav-titles">Developers</span>
+                            <div class="row-modal">
+                                <span class="nav-title" data-target="guideContent">Guide</span>
+                                <span class="nav-title" data-target="aboutContent">About</span>
+                                <!-- <span class="nav-title" data-target="devContent">Developers</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description-testmony">
+                        <div class="content-description">
+                            <div class="images">
+                                <span class="guide-images-dev1">
+                                    <img src="image/3d-casual-life-young-man-at-workplace-with-coffee.png" alt="guide">
+                                </span>
+                                <span class="guide-images-dev2">
+                                    <img src="image/3d-casual-life-young-man-with-tablet-1.png" alt="guide">
+                                </span>
+                            </div>
+                            <div class="developer-description">
+                                <span class="developer-testimony-title"> Team Behind the Innovation </span>
+                                <span class="testimony">
+                                    <span class="testimony-description">We, Wendell and Ruszel, are proud to present our Queuing System developed for PUP Unisan. This opportunity was made possible by the support and guidance of Campus Director and Internship Supervisor Ryan Villalon.</span>
+                                    <span class="testimony-description">Our team, with Ruszel as the developer and Wendell as the designer, dedicated ourselves to creating a seamless and efficient queuing experience. We are grateful for the trust and encouragement from PUP Unisan and look forward to continuing our innovative work in technology solutions.</span>
+                                    <span class="testimony-team">
+                                        <span class="testimony-name">Thank you,</span>
+                                        <span class="testimony-name">Wendell Atienza</span>
+                                        <span class="testimony-name">Ruszel Saavedra</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="guide-btn" id="closeModal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+        
+        
+
+           
+        
+
+    <!-- JavaScript -->
+    <script src="javascript/transition_function.js"></script>
+    <script src="javascript/"></script>
+    <script src="javascript/help.js"></script>
+</body>
+</html>

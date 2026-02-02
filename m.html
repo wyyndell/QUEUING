@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        /* Resetting default margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 20px;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 70%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .menu-item-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: #333333;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            line-height: 1.5;
+            display: block;
+        }
+
+        .menu-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        /* Media query for large screens */
+        @media (min-width: 1024px) {
+            .menu-container {
+                max-width: 60%;
+                padding: 30px;
+            }
+
+            .menu-item-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu-item {
+                font-size: 32px;
+                padding: 30px;
+                border-radius: 15px;
+            }
+
+            h1 {
+                font-size: 48px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Menu</h1>
+        <div class="menu-item-container">
+            <a href="office/office_monitor.php" class="menu-item">Monitor</a>
+            <a href="office/office.php" class="menu-item">Office</a>
+            <a href="office/office_create_admin.html" class="menu-item">Create Account</a>
+            <a href="k2/index.html" class="menu-item">Kiosk</a>
+            <a href="sa/superadmin_index.php" class="menu-item">Administration</a>
+            <p>This is a Sample static Website!</p>
+        </div>
+    </div>
+</body>
+</html>

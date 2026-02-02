@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Kiosk</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+        }
+
+        .bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.322);
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .container-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90%;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .container-form::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        .container-form {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .container-form::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+
+        .container-form::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .nutshell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10%;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            margin-top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('/Q/img/nutshell.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        select, input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+            width: calc(50% - 10px);
+            height: 70px;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.7em;
+        }
+
+        input#clientnumber {
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            font-size: 3em;
+            text-align: center;
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: none;
+            background: none;
+            border: none;
+        }
+
+        input#clientnumber::-webkit-outer-spin-button,
+        input#clientnumber::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .checkbox-label {
+            width: 50%;
+            padding: 5px;
+            font-size: 1.7em;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 3%;
+            margin-bottom: 3%;
+        }
+
+        .button-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-wrapper button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 2em;
+            transition: transform 0.2s;
+        }
+
+        .button-wrapper button:hover {
+            transform: scale(1.1);
+        }
+
+        .button-wrapper button i {
+            pointer-events: none;
+        }
+
+        .item.details {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            button#click::before {
+                content: 'Touch Me!';
+                font-size: 85px;
+            }
+
+            h1 {
+                display: none;
+            }
+
+            select, input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+                font-size: 1em;
+            }
+
+            .cursor {
+                display: none;
+            }
+
+            .touch {
+                display: block !important; /* Ensure it overrides the default display:none */
+                width: 300px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+        }
+
+        .touch {
+            display: none; /* Hide it by default */
+        }
+
+        button#click {
+            font-size: 100px;
+            content: 'Click Me!';
+        }
+
+        .click {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+        }
+
+        .click-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .click-container button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: rgb(255, 102, 46);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .cursor {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="click">
+        <div class="click-container">
+            <img src="img/fingerprint.gif" alt="touch" class="touch">
+            <img src="img/cursor.gif" alt="cursor" class="cursor">
+            <button id="click"><h1>Click Me!</h1></button>
+        </div>
+    </div>
+
+    <div class="bg" id="modal">
+        <div class="container-form">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <form action="insert.php" method="post" autocomplete="off">
+                <div class="nutshell">
+                    <input type="number" name="clientnumber" id="clientnumber" class="readonly" aria-label="Client Number" required>
+                </div>
+            
+                <select name="office" id="office" required>
+                    <option value="" disabled selected>Select Office</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            
+                <div class="checkbox-group" id="services">
+                    <!-- Checkboxes will be populated dynamically -->
+                </div>
+            
+                <div class="item details">
+                    <input type="text" placeholder="First Name" name="fname" required aria-label="First Name">
+                    <input type="text" placeholder="Middle Name" name="mname" aria-label="Middle Name">
+                    <input type="text" placeholder="Last Name" name="lname" required aria-label="Last Name">
+                    <input type="email" placeholder="Email" name="email" required aria-label="Email">
+                    <input type="tel" placeholder="Contact Number" name="contactnumber" required aria-label="Contact Number">
+                    <input type="text" placeholder="Permanent Address" name="address" required aria-label="Permanent Address">
+                    <select name="gender" required aria-label="Gender">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Girl">Girl</option>
+                        <option value="Boy">Boy</option>
+                    </select>
+                    <select name="clienttype" required aria-label="Client Type">
+                        <option value="" disabled selected>Client Type</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Child">Child</option>
+                    </select>
+                </div>
+            
+                <div class="button">
+                    <div class="button-wrapper">
+                        <button type="submit">
+                            SUBMIT
+                        </button>
+                    </div>
+                    <div class="button-wrapper">
+                        <button type="reset">
+                            CANCEL
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('fetch_offices.php')
+                .then(response => response.json())
+                .then(data => {
+                    const officeSelect = document.getElementById('office');
+                    data.forEach(office => {
+                        const option = document.createElement('option');
+                        option.value = office;
+                        option.textContent = office;
+                        officeSelect.appendChild(option);
+                    });
+                });
+    
+            document.getElementById('office').addEventListener('change', function() {
+                const office = this.value;
+                fetch('fetch_services.php?office=' + office)
+                    .then(response => response.json())
+                    .then(data => {
+                        const servicesDiv = document.getElementById('services');
+                        servicesDiv.innerHTML = ''; // Clear previous checkboxes
+                        data.forEach((service, index) => {
+                            const label = document.createElement('label');
+                            label.className = 'checkbox-label';
+                            label.innerHTML = `<input type="checkbox" name="services[]" value="${service}"> ${service}`;
+                            servicesDiv.appendChild(label);
+                        });
+                    });
+            });
+    
+            // Show modal when "Click Me!" button is clicked
+            document.getElementById('click').addEventListener('click', function() {
+                document.getElementById('modal').style.display = 'flex';
+            });
+    
+            // Close modal when close button is clicked
+            document.getElementById('close-btn').addEventListener('click', function() {
+                document.getElementById('modal').style.display = 'none';
+            });
+    
+            // Close modal when clicked outside of it
+            window.addEventListener('click', function(event) {
+                if (event.target === document.getElementById('modal')) {
+                    document.getElementById('modal').style.display = 'none';
+                }
+            });
+    
+            // Handle form submission
+            document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+    
+                // Collect checked checkboxes
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                const selectedServices = Array.from(checkboxes).map(cb => cb.value);
+    
+                // Append selected services to a hidden input field or handle as needed
+                const servicesInput = document.createElement('input');
+                servicesInput.type = 'hidden';
+                servicesInput.name = 'selected_services';
+                servicesInput.value = selectedServices.join(', '); // Store as comma-separated values
+                this.appendChild(servicesInput);
+    
+                // Submit the form
+                this.submit();
+            });
+        });
+    </script>
+
+    <script src="js/help.js"></script>
+    
+</body>
+</html>

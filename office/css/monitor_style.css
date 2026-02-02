@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Ensure body acts as positioning context */
+    overflow: hidden;
+    /* background-color: #FF914D; */
+}
+
+/* Container styles */
+.monitor-container {
+    /* background-color: red; */
+    padding: 20px;
+    max-width: 1200px; /* Increased maximum width for .monitor-container */
+    width: 100%; /* Ensures .monitor-container takes full width of its parent */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Center items vertically */
+    gap: 20px; /* Gap between .announcement and .datetime */
+    z-index: 1; /* Ensure content is above images */
+    position: relative; /* Maintain stacking context */
+    margin-top: 5%;
+}
+
+/* Announcement styles */
+.announcements {
+    padding: 20px 20px;
+    flex: 9; 
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    width: 55vh;
+    height: 60vh;
+}
+
+
+.carousel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    text-align: center; /* Already added */
+}
+
+
+
+.carousel {
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+    height: 100%px; /* Set height to match announcement section */
+    overflow: hidden;
+    margin: 0 auto; /* Center horizontally */
+
+}
+
+
+.carousel-inner {
+    width: 100%;
+    height: 100%; /* Set height to match carousel */
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+.announcement{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+
+}
+
+/* DateTime styles */
+.datetime {
+    /* background-color: aqua; */
+    padding: 20px;
+    flex: 1; /* Takes 10% of available space */
+    margin-left: auto; /* Pushes .datetime to the right */
+    border-radius: 10px;
+}
+
+/* Stand (Images) styles */
+.stand {
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    left:   1250px;
+    width: 100%;
+    padding: 10px;
+    z-index: 99;
+}
+
+.stand img {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+}
+
+.left-image {
+    order: 1; /* Ensure left image is on the left */
+}
+
+.right-image {
+    order: 2; /* Ensure right image is on the right */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .monitor-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .announcement, .datetime {
+        flex: auto; /* Equal distribution of space */
+        width: auto; /* Reset width */
+        margin-left: 0; /* Reset margin */
+    }
+
+    .stand {
+        position: static; /* Reset position for smaller screens */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stand img {
+        margin-bottom: 10px; /* Add space between images */
+    }
+}
+
+/* DateTime styles */
+
+
+.datetime-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.datetime-header p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.weather-info {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.weather-info p {
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .monitor-container {
+        padding: 10px;
+    }
+}
+
+.card {
+    width: 250px;
+    height: 135px;
+    position: relative;
+    padding: 25px;
+    background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
+    box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 23px;
+    transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .container {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    right: -35px;
+    top: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.7);
+  }
+  
+  .cloud {
+    width: 225px;
+  }
+  
+  .front {
+    padding-top: 45px;
+    margin-left: 25px;
+    display: inline;
+    position: absolute;
+    z-index: 11;
+    animation: clouds 8s infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .back {
+    margin-top: -30px;
+    margin-left: 150px;
+    z-index: 12;
+    animation: clouds 12s infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .right-front {
+    width: 45px;
+    height: 45px;
+    border-radius: 50% 50% 50% 0%;
+    background-color: #4c9beb;
+    display: inline-block;
+    margin-left: -25px;
+    z-index: 5;
+  }
+  
+  .left-front {
+    width: 65px;
+    height: 65px;
+    border-radius: 50% 50% 0% 50%;
+    background-color: #4c9beb;
+    display: inline-block;
+    z-index: 5;
+  }
+  
+  .right-back {
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 50% 50% 0%;
+    background-color: #4c9beb;
+    display: inline-block;
+    margin-left: -20px;
+    z-index: 5;
+  }
+  
+  .left-back {
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 0% 50%;
+    background-color: #4c9beb;
+    display: inline-block;
+    z-index: 5;
+  }
+  
+  .sun {
+    width: 100px;
+    height: 100px;
+    background: -webkit-linear-gradient(to right, #fcbb04, #fffc00);
+    background: linear-gradient(to right, #fcbb04, #fffc00);
+    border-radius: 60px;
+    display: inline;
+    position: absolute;
+  }
+  
+  .sunshine {
+    animation: sunshines 2s infinite;
+  }
+  
+  @keyframes sunshines {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+  
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes clouds {
+    0% {
+      transform: translateX(15px);
+    }
+  
+    50% {
+      transform: translateX(0px);
+    }
+  
+    100% {
+      transform: translateX(15px);
+    }
+  }
+  
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card-header span:first-child {
+    word-break: break-all;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 135%;
+    color: rgba(87, 77, 51, 0.66);
+  }
+  
+  .card-header span:last-child {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 135%;
+    color: rgba(87, 77, 51, 0.33);
+  }
+  
+  .temp {
+    position: absolute;
+    left: 25px;
+    bottom: 12px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 77px;
+    color: rgba(87, 77, 51, 1);
+  }
+  
+  .temp-scale {
+    width: 80px;
+    height: 26px;
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 9px;
+  }
+  
+  .temp-scale span {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 134.49%;
+    color: rgba(87, 77, 51, 0.66);
+  }
+
+  /* Modal */
+  .modal-container {
+    display: none; /* Initially hide modal */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px;
+    z-index: 999;
+}
+
+.confetti {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  z-index: 999;
+}
+
+.modal-items {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+    width: 20%;
+    max-width: 25%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.modal-items h2{
+ font-size: 35px;
+}
+
+.cnumber {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url('../img/nutshell.png'); /* Adjust path relative to your CSS file */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: brown;
+  font-size: 40px;
+  text-align: center;
+  line-height: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+
+.cnumber h1 {
+  margin: 0; /* Remove default margin */
+  font-size: 65px;
+  color: #fff; /* Text color */
+  -webkit-text-stroke: 2px #754C29; /* WebKit browsers (Safari, Chrome, etc.) */
+  text-stroke: 2px #754C29; /* Standard property */
+}
+
+
+.office {
+    text-align: center; /* Center text in .office */
+}
+
+.office h2, .office p {
+    margin: 0; /* Remove default margin */
+}
+
+.office {
+    margin: 30px;
+}
+
+.office h2 {
+    font-size: 40px;
+}
+
+.office p {
+  font-size: 25px;
+}
+
+.containers {
+    max-width:  1190px;
+    margin-inline: auto;
+    padding-block: 12px;
+}
+
+
+/* Styling for .header */
+.header {
+  display: flex; /* Use flexbox for horizontal layout */
+  align-items: center; /* Align items vertically */
+  padding: 10px; /* Padding around header content */
+  position: fixed; /* Fixed position to stay at the top */
+  top: 3%; /* Align to the top of the viewport */
+  width: 90%; /* Full width of the viewport */
+  z-index: 1000; /* Ensure it's above other content */
+  color: #000;
+  gap: 16px;
+  
+}
+
+/* Styling for .header img */
+.header img.imgnav {
+  width: 60px; /* Adjust width of the images */
+  height: 60px; /* Adjust height of the images */
+}
+
+/* Styling for .header h1 */
+.header h1.text {
+  font-size: 28px; /* Font size for the heading */
+  font-weight: 600; /* Bold font weight */
+  align-items: center;
+  line-height: 2rem;
+}
+
+.reminder{
+    display: flex;
+}
+.note{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px 16px;
+
+}
+.note-title{
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.note-description{
+    font-size: 24px;
+}

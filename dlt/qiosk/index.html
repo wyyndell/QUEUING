@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/sitting.png" type="image/x-icon">
+    <title>Queueing Kiosk</title>
+</head>
+<body>
+    <div class="container">
+        <div class="headings">
+            <img src="img/clip.png" alt="clip" class="clip">
+            <form id="clientForm" action="index_insert_data.php" method="POST" autocomplete="off" class="form">
+                <div class="item num">
+                    <input type="number" id="clientnumber" name="clientnumber" placeholder="50" required>
+                    <label for="clientnumber">Client Number</label>
+                </div>
+
+                <div class="item details">
+                    <input type="text" placeholder="First Name" name="fname" required>
+                    <input type="text" placeholder="Middle Name" name="mname">
+                    <input type="text" placeholder="Last Name" name="lname" required>
+                    <select name="purpose" required>
+                        <option value="" disabled selected>Purpose</option>
+                        <option value="Payout">Payout</option>
+                        <option value="Appointment">Appointment</option>
+                    </select>
+                </div>
+
+                <div class="button">
+                    <div class="button-wrapper">
+                        <button type="submit">
+                            <i class="fa-solid fa-check" style="color: #850F8D;"></i>
+                        </button>
+                    </div>
+                    <div class="button-wrapper">
+                        <button type="reset">
+                            <i class="fa-solid fa-xmark" style="color: #f20202;"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="sit">
+            <img src="img/sitting.png" alt="clip" class="sitting">
+        </div>
+    </div>
+
+   
+</body>
+</html>

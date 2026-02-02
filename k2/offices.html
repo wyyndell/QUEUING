@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="image/logo.png" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <title>Offices</title>
+</head>
+<body>
+  <!-- Header -->
+  <audio id="atm-sound" src="image/330806__czarcazas__atm-beep.mp3" preload="auto"></audio>
+    <!-- Selection of Office -->
+  <form action="index_insert.php" method="POST" onsubmit="return combineClientNumber()">
+    <div class="container office active" id="step1">
+      <div class="header-office">
+        <h1 class="header-title-office">Hello,</h1>
+        <p class="header-sub">Choose the office you need to visit.</p>
+      </div>
+
+      <div class="offices-container">
+        <div class="offices">
+          <button type="button" class="btn-primary" onclick="selectOffice('Room 104')">
+            <div class='wrapper'>
+              <div id='name' class='office'>
+                <div class='office_admin'>DIT Room 104</div>
+                <div class='admin'>Don Lenard Pescadero</div>
+              </div>
+            </div>
+            <div class="background-paper">
+              <span class="image1"><img src="image/3d-glassy-composition-with-multicolored-geometric-shapes.png" alt=""></span>
+            </div>
+          </button>
+
+          <button type="button" class="btn-primary" onclick="selectOffice('Room 103')">
+            <div class='wrapper'>
+              <div id='name' class='office'>
+                <div class='office_admin'>DOMT Room 103</div>
+                <div class='admin'>Marijoy Antone</div>
+              </div>
+            </div>
+            <div class="background-paper">
+              <span class="image1"><img src="image/3d-glassy-composition-with-multicolored-geometric-shapes.png" alt=""></span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button type="button" class="btn next" onclick="next('step1', 'step3')">Next</button>
+      </div>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="container contactdetails" id="step3">
+      <div class="header-office">
+        <h1 class="header-title-office">Personal Information</h1>
+        <p class="header-sub">Provide required information</p>
+      </div>
+      <div class="info">
+        <div class="contact-address">
+          <div class="contact-info">
+            <label class="label">
+              <input type="text" class="input" name="fname" placeholder="Full Name" autocomplete="on"/>
+            </label>
+          </div>
+        </div>
+        <div class="gender-section">
+          <span class="title">Choose your gender</span>
+          <div class="gender">
+            <button type="button" class="btn-gender" onclick="selectGender('Male')">
+              <div class='wrapper'>
+                <div id='male' class='genders'>
+                  <div class='gender-name'>Male</div>
+                </div>
+              </div>
+              <div class="gender-background">
+                <span class="image-gender"><img src="image/casual-life-3d-profile-picture-of-man-in-green-shirt-and-orange-hat.png" alt=""></span>
+              </div>
+            </button>
+            <button type="button" class="btn-gender" onclick="selectGender('Female')">
+              <div class='wrapper'>
+                <div id='female' class='genders'>
+                  <div class='gender-name'>Female</div>
+                </div>
+              </div>
+              <div class="gender-background">
+                <span class="image-gender"><img src="image/3d-casual-life-avatar-girl-with-hair.png" alt=""></span>
+              </div>
+            </button>
+            <button type="button" class="btn-gender" onclick="selectGender('Prefer not to say')">
+              <div class='wrapper'>
+                <div id='prefer-not-to-say' class='genders'>
+                  <div class='gender-name'>Prefer not to say</div>
+                </div>
+              </div>
+              <div class="gender-background">
+                <span class="image-gender"><img src="image/buddy-coin.png" alt=""></span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <p class="note">
+          <span class="noted">Note:</span>
+          <span class="note-description"> Please fill out the personal information form accurately. This information will be used by the university for official purposes and records. Ensure all details are correct and up to date.</span>
+        </p>
+      </div>
+      <div class="btn-container">
+        <button type="button" class="btn prev" onclick="prev('step3', 'step1')">Previous</button>
+        <button type="button" class="btn next" onclick="next('step3', 'step5')">Next </button>
+      </div>
+    </div>
+
+    <!-- Client Number -->
+    <div class="container clientnumber" id="step5">
+      <div class="header-office">
+        <h1 class="header-title-office">Client Number</h1>
+        <p class="header-sub">Please enter your client number to proceed.</p>
+      </div>
+      <div class="client-num">
+        <div class="number-holders">
+          <input type="number" class="line-number" id="clientnumber1" maxlength="1" placeholder="0">
+          <input type="number" class="line-number" id="clientnumber2" maxlength="1" placeholder="0">
+        </div>
+      </div>
+      <div class="btn-container">
+        <button type="button" class="btn prev" onclick="prev('step5', 'step3')">Previous</button>
+        <button type="submit" class="btn submit">Submit</button>
+      </div>
+    </div>
+
+    <!-- Hidden inputs to store selected office and gender -->
+    <input type="hidden" name="office" id="selectedOffice">
+    <input type="hidden" name="gender" id="selectedGender">
+    <input type="hidden" name="clientnumber" id="combinedClientNumber">
+    <input type="hidden" name="clienttype" value="Freshmen">
+  </form>
+
+  <script src="javascript/transition_function.js"></script>
+  <script>
+    function selectOffice(office) {
+      document.getElementById('selectedOffice').value = office;
+    }
+
+    function selectGender(gender) {
+      document.getElementById('selectedGender').value = gender;
+    }
+
+    function combineClientNumber() {
+      const clientNumber1 = document.getElementById('clientnumber1').value;
+      const clientNumber2 = document.getElementById('clientnumber2').value;
+      document.getElementById('combinedClientNumber').value = clientNumber1 + clientNumber2;
+      return true; // Allow the form to be submitted
+    }
+
+    // Check if form submission was successful
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+          alert("Submitted successfully. Proceed to waiting area.");
+          window.location.href = 'index.html'; // Redirect to index.html after alert
+        }
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+
+:root {
+  /* Accent colors */
+  --clr-accent-400: #222831;
+  --clr-accent-100: #FEFBF6;
+
+  /* Primary colors */
+  --clr-primary-400: #FBA834;
+  --clr-primary-100: #561C24;
+
+  /* Neutral colors */
+  --clr-neutral-100: #F5F7F8;
+  --clr-neutral-900: hsl(0, 39%, 44%);
+
+  /* Font families */
+  --ff-primary: font-family: "Work Sans", sans-serif;
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  /* Font sizes */
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 1rem;
+  --fs-600: 1.875rem;
+  --fs-700: 2.5rem;
+
+  /* Font sizes references */
+  --fs-body: var(--fs-400);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-300);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	font-family: "Poppins", sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+
+  --poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+
+	--light: #F9F9F9;
+	--blue: #3C91E6;
+	--light-blue: #CFE8FF;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--red: #DB504A;
+	--yellow: #FFCE26;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--light-orange: #FFE0D3
+
+  /* Accent colors */
+  /* --clr-accent-400: #222831;
+  --clr-accent-100: #FEFBF6; */
+
+  /* Primary colors */
+  /* --clr-primary-400: #FBA834;
+  --clr-primary-100: #561C24; */
+
+  /* Neutral colors */
+  /* --clr-neutral-100: #F5F7F8;
+  --clr-neutral-900: hsl(0, 39%, 44%);  */
+
+  /* Font families */
+  /* --ff-primary: font-family: "Work Sans", sans-serif; */
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body.dark {
+	--light: #0C0C1E;
+	--grey: #060714;
+	--dark: #FBFBFB;
+}
+
+body {
+	background: var(--clr-accent-100);
+	overflow-x: hidden;
+}
+
+.wrapper{
+	display: flex;
+}
+nav{
+	width: 95px;
+	/* width: 290px; */
+	height:100vh;
+	background:var(--clr-neutral-100);
+	transition: 0.5s ease-out;
+	overflow: hidden;
+}
+nav:hover{
+	width: 290px;
+}
+.navbar{
+	padding: 1rem;
+	position: relative;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	transition: 0.5s ease-out;
+	overflow: hidden;
+}
+.logo{
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+	overflow: hidden;
+	margin-bottom: 2rem;
+}
+.logo img{
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+.logo span{
+	font-size: 18px;
+	color: rgb(39, 39, 39);
+	font-weight: bold;
+	padding-left: 15px;
+	/* text-transform: uppercase; */
+}
+.navbar a{
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	color: rgb(39, 39, 39);
+	font-weight: 500;
+	overflow: hidden;
+}
+.navbar i{
+	font-size: 1.2rem;
+	color:rgb(104, 103, 103) ;
+	margin:0 1.8rem 0 0.3rem;
+}
+.navbar a:hover{
+	background:rgb(238,237,237) ;
+	border-radius: 10px;
+	transition: 0.3s  ease-out;
+}
+.logout {
+	position: absolute;
+	bottom: 20px;
+}
+.logout i{
+	padding-right: 1rem;
+}
+
+/* Main Body */
+.main-body{
+	padding: 1.5rem 2rem;
+	width: 75%;
+}
+.header h1{
+	margin: 1.3rem 0;
+	color: rgb(68, 68,68) ;
+}
+.following-wrapper{
+	display: flex ;
+	justify-content: space-between;
+}
+.card{
+	padding: 1rem;
+	border: 3px solid #fff;
+	border-radius: 10px;
+	width: 180px;
+}
+.card img {
+	width: 50px;
+	margin-bottom: 10px;
+}
+.card h3{
+	font-size: 12px;
+}
+.card span{
+	font-size: 12px;
+	color: gray;
+}
+.card .more{
+	display: flex;
+	justify-content: end;
+}
+.more button{
+	font-size: 1rem;
+	background: none;
+	font-weight:bold;
+	cursor: pointer;
+}
+.card :hover{
+	background: #fff;
+	transition: 0.5s ease-out;
+}
+
+/* Sidebar */
+.sidebar {
+	width: 450px;
+	height: 550px;
+	padding: 2rem 1rem;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	margin-right: 20px;
+	margin-top: 135px;
+}
+
+
+  .sidebar .item-link {
+	display: flex;
+	width: 375px; /* Adjust width as needed */
+	padding: 1rem; /* Adjust padding */
+	margin-bottom: 1rem; /* Adjust margin */
+	background: #e5e5e7;
+	border-radius: 20px;
+	gap: 10px;
+  }
+
+  .item-link a {
+    padding: 10px 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333; /* Adjust the color as needed */
+}
+.item-link .addclient {
+    font-size: 20px;
+    color: #666; /* Adjust the color as needed */
+    padding: 10px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 50%; /* Makes the element circular */
+    width: 40px; /* Adjust the width and height for your circle */
+    height: 40px; /* Adjust the width and height for your circle */
+    background-color: #f0f0f0; /* Adjust the background color of the circle */
+    display: inline-flex; /* Ensures the circle only takes the space it needs */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+}
+
+
+
+.item-link a:hover,
+.item-link .active {
+    color: #fff;
+    border-radius: 10px;
+    background: var(--clr-primary-400); /* Adjust the background color as needed */
+}
+
+
+  .comment {
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+    max-height: 375px; /* Set maximum height for scrolling */
+    padding: 20px; /* Add padding for better appearance */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    background-color: #ffffff; /* Set background color */
+}
+
+/* Adjust scrollbar style */
+  .comment::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comment::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 4px;
+}
+
+/* Adjust scrollbar track */
+.comment::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+  .box {
+	display: flex;
+	gap: 25px;
+	justify-content: left;
+	align-items: left;
+	margin: 5px auto;
+
+  }
+
+  .clientNum {
+    display: inline-block;
+    padding: 15px ; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    font-weight: 700; /* Make text bold */
+	font-size: var(--fs-700);
+	font-family: var(--poppins)
+}
+
+
+
+
+  .body-text p {
+	font-size: 10px;
+  }
+
+  .body-text span {
+	font-size: 10px;
+	color: gray;
+  }
+
+
+
+
+/* Main Body */
+
+/* .form{
+	width:400px;
+  } */
+  .file-upload-wrapper{
+	position:relative;
+	width:100%;
+	height:60px;
+	cursor: pointer;
+	margin-bottom: 1rem;
+  }
+  .file-upload-wrapper::after{
+	content:attr(data-text);
+	font-size: 18px;
+	position:absolute;
+	top:0;
+	left:0;
+	background:#fff;
+	padding:10px 15px;
+	display: block;
+	width:calc(100% - 40px);
+	pointer-events:none;
+	z-index: 20;
+	height:40px;
+	line-height: 40px;
+	color:#999;
+	border-radius: 5px 10px 10px 5px;
+	font-weight: 300;
+  }
+  .file-upload-wrapper::before {
+	content: "Upload";
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline-block;
+	height: 60px;
+	background-color: #007bff; /* Change to the desired solid color */
+	color: #fff;
+	font-weight: 700;
+	z-index: 25;
+	font-size: 16px;
+	line-height: 60px;
+	padding: 0 15px;
+	text-transform: uppercase;
+	pointer-events: none;
+	border-radius: 0 5px 5px 0;
+	transition: 0.5s ease-in-out;
+  }
+
+  .file-upload-wrapper:hover::before {
+	background-color: #0056b3; /* Change to the desired solid color on hover */
+  }
+
+  .file-upload-wrapper input{
+	opacity: 0;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index: 99;
+	height:40px;
+	margin:0;
+	padding:0;
+	display:block;
+	cursor: pointer;
+	width:100%;
+  }
+/* Style for the serves class */
+.serves {
+	/* width: 800px;  */
+	height: 550px; /* Example height, adjust as needed */
+	border: 1px solid #ccc; /* Add border */
+	border-radius: 5px; /* Rounded corners */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+	padding: 20px;
+}
+
+/* Style for the buttons-container class */
+.buttons-container {
+	display: flex;
+	justify-content: center; /* Center the buttons horizontally */
+	margin-top: 0;
+	padding: 1px;
+  }
+
+  .buttons-container button {
+	background-color: #007bff;
+	color: #fff;
+	padding: 20px 40px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 0 10px; /* Add margin between buttons */
+  }
+
+  /* Styles for the first button */
+.buttons-container button:nth-child(1) {
+	background-color: none; /* Change background color of the first button */
+  }
+
+  /* Styles for the second button */
+  .buttons-container button:nth-child(2) {
+	background-color: #28a745; /* Change background color of the second button */
+  }
+
+  /* Styles for the third button */
+  .buttons-container button:nth-child(3) {
+	background-color: #dc3545; /* Change background color of the third button */
+  }
+
+
+.text {
+	text-align: center;
+	margin: 0.785rem;
+	font-size: 24px;
+}
+.text h1 {
+	font-size: 64px;
+}
+.text p{
+	font-size: 18px;
+}
+.text h4{
+	font-size: 32px;
+	font-weight: 100;
+}
+

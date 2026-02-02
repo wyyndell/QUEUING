@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="image/logo.png" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <title>Campus Kiosk</title>
+</head>
+<body>
+  <!-- Header -->
+  <audio id="atm-sound" src="image/330806__czarcazas__atm-beep.mp3" preload="auto"></audio>
+  
+  <!-- Selection of Office -->
+  <form id="kioskForm" action="index_insert.php" method="post">
+    <!-- Contact Details -->
+    <div class="container contactdetails active" id="step1">
+      <div class="header-office">
+        <h1 class="header-title-office">Hello,</h1>
+        <p class="header-sub">Please provide your information</p>
+      </div>
+      <div class="info">
+        <div class="contact-address">
+          <div class="contact-info">
+            <label class="label">
+              <input type="text" name="fname" class="input" placeholder="Full Name" autocomplete="on" required/>
+            </label>
+          </div>
+        </div>
+        <div class="gender-section">
+          <span class="title">Choose your gender</span>
+          <div class="gender">
+            <button type="button" class="btn-gender" onclick="selectGender('Male')">
+              <div class="wrapper">
+                <div id="male" class="genders">
+                  <div class="gender-name">Male</div>
+                </div>
+              </div>
+              <div class="gender-background">
+                <span class="image-gender"><img src="image/casual-life-3d-profile-picture-of-man-in-green-shirt-and-orange-hat.png" alt="Male"></span>
+              </div>
+            </button>
+            <button type="button" class="btn-gender" onclick="selectGender('Female')">
+              <div class="wrapper">
+                <div id="female" class="genders">
+                  <div class="gender-name">Female</div>
+                </div>
+              </div>
+              <div class="gender-background">
+                <span class="image-gender"><img src="image/3d-casual-life-avatar-girl-with-hair.png" alt="Female"></span>
+              </div>
+            </button>
+            <button type="button" class="btn-gender" onclick="selectGender('Prefer not to say')">
+              <div class="wrapper">
+                <div id="prefer-not-to-say" class="genders">
+                  <div class="gender-name">Prefer not to say</div>
+                </div>
+              </div>
+              <div class="gender-background">
+                <span class="image-gender"><img src="image/buddy-coin.png" alt="Prefer not to say"></span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <p class="note">
+          <span class="noted">Note:</span>
+          <span class="note-description">Please fill out the personal information form accurately. This information will be used by the university for official purposes and records. Ensure all details are correct and up to date.</span>
+        </p>
+      </div>
+      <div class="btn-container">
+        <button type="button" class="btn next" onclick="next('step1', 'step2')">Next</button>
+      </div>
+    </div>
+
+    <!-- Client Number -->
+    <div class="container clientnumber" id="step2">
+      <div class="header-office">
+        <h1 class="header-title-office">Client Number</h1>
+        <p class="header-sub">Please enter your client number.</p>
+      </div>
+      <div class="client-num">
+        <div class="number-holders">
+          <input type="number" name="clientnum1" class="line-number" maxlength="1" placeholder="0" required>
+          <input type="number" name="clientnum2" class="line-number" maxlength="1" placeholder="0" required>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button type="button" class="btn prev" onclick="prev('step2', 'step1')">Previous</button>
+        <button type="submit" class="btn next" onclick="showSuccessModal(event)">Submit</button>
+      </div>
+    </div>
+
+    <!-- Hidden Fields -->
+    <input type="hidden" name="gender" id="gender">
+    <input type="hidden" name="clientnumber" id="clientnumber">
+    <input type="hidden" name="office" value="Room 104">
+    <input type="hidden" name="purpose" value="interview">
+    <input type="hidden" name="clienttype" value="Freshman">
+  </form>
+  
+  <!-- Review Section -->
+  <!-- Modal -->
+  <div class="container-modal" id="modal"> 
+    <div class="card" id="modal-card">
+      <div class="header-modal"> 
+        <div class="div_image_v">
+          <div class="image">
+            <img src="image/bouncy-a-paper-airplane-with-a-check-mark.gif" alt="Thank you">
+          </div> 
+        </div> 
+        <div class="contents">
+          <span class="title-modal">Thank you!</span> 
+          <p class="message">Please proceed to the waiting area.</p> 
+        </div> 
+      </div> 
+    </div>
+  </div>
+
+  <script>
+      // Redirect to index.html on page reload or refresh
+      if (performance.navigation.type === 1) {
+          window.location.href = 'index.html';
+      }
+
+      // Function to show success modal and handle form submission
+      function showSuccessModal(event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          combineClientNumber(); // Ensure client number is combined
+
+          const modal = document.getElementById('modal');
+          modal.style.display = 'flex'; // Show the modal
+
+          // Hide the modal after 1 second and submit the form
+          setTimeout(function() {
+              modal.style.display = 'none';
+              document.getElementById('kioskForm').submit(); // Submit the form
+          }, 1000); // 1000 milliseconds = 1 second
+      }
+
+      // Function to select gender
+      function selectGender(gender) {
+          document.getElementById('gender').value = gender;
+      }
+
+      // Function to combine client number
+      function combineClientNumber() {
+          const lineNumbers = document.querySelectorAll('.line-number');
+          const clientNumber = Array.from(lineNumbers).map(input => input.value).join('');
+          document.getElementById('clientnumber').value = clientNumber;
+      }
+  </script>
+
+  <script src="javascript/transition_function.js"></script>
+</body>
+</html>

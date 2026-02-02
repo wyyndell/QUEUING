@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="click">
+        <div class="click-container">
+            <img src="img/cmilk.png" alt="chair" class="cmilk">
+            <button id="click">Click Me!</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <form>
+        <div class="modal-container" id="modalContainer">
+            <!-- slide 1 -->
+            <div class="form-container">
+                <div class="modal-items">
+                    <button class="close-button" id="closeModal">&times;</button>
+                    <div class="nutshell">
+                        <input type="number" name="clientnumber" id="clientnumber" readonly>
+                    </div>
+                    <h4>Your Client Number</h4>
+                    
+                        <select name="purpose" required>
+                            <option value="" disabled selected>Select Office</option>
+                            <option value="Payout">Cashier</option>
+                            <option value="Appointment">Registrar</option>
+                        </select>
+
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="checkbox1"> Checkwwwwwwwwwwwwwbox 1
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="checkbox2"> Checkbox 2
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="checkbox3"> Checkbox 3
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="checkbox4"> Checkbox 4
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="checkbox5"> Checkbox 5
+                            </label>
+                        </div>
+
+                        
+                    <button id="next" class="next btn">Next</button>
+                </div>
+            </div>  
+
+        </div>
+    </form>
+
+    <script>
+        let inactivityTimer;
+        let lastGeneratedNumber = 0;
+
+        function resetTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(hideModal, 340000);
+        }
+
+        function generateUniqueNumber() {
+            const today = new Date().toISOString().slice(0, 10);
+            const storedDate = localStorage.getItem('generatedDate');
+            let count = parseInt(localStorage.getItem('generatedCount')) || 0;
+
+            if (storedDate !== today) {
+                count = 0;
+                localStorage.setItem('generatedDate', today);
+            }
+
+            count++;
+            localStorage.setItem('generatedCount', count.toString());
+
+            return count;
+        }
+
+        function showModal() {
+            const randomNumber = generateUniqueNumber();
+            document.getElementById('clientnumber').value = randomNumber;
+            lastGeneratedNumber = randomNumber;
+            document.getElementById('modalContainer').style.display = 'flex';
+            resetTimer();
+        }
+
+        function hideModal() {
+            document.getElementById('modalContainer').style.display = 'none';
+        }
+
+        document.getElementById('click').addEventListener('click', showModal);
+        document.getElementById('closeModal').addEventListener('click', hideModal);
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('modalContainer');
+            if (event.target === modal) {
+                hideModal();
+            }
+        });
+
+        document.getElementById('modalContainer').addEventListener('mousemove', resetTimer);
+        document.getElementById('modalContainer').addEventListener('keypress', resetTimer);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().slice(0, 10);
+            const storedDate = localStorage.getItem('generatedDate');
+
+            if (storedDate === today) {
+                lastGeneratedNumber = parseInt(localStorage.getItem('generatedCount')) || 0;
+            }
+        });
+    </script>
+</body>
+</html>

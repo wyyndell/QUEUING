@@ -1,0 +1,554 @@
+:root
+{
+    --primary-clr: #973131;
+}
+body {
+    overflow: hidden;
+    background-color: #F0F8FF;
+}
+.serving-container {
+    /* background-color: green; */
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute; /* Ensure it can be positioned absolutely */
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it */
+    width: 85%;
+    border-radius: 15px;
+    /* height: 500px; */
+}
+
+.content.serving button.share {
+    float: right;
+    font-size: 30px;
+    color: var(--primary-clr);
+    background: none;
+    border: none;
+    padding: 5px;
+}
+.content {
+    /* background-color: red; */
+    flex-grow: 1;
+    flex-basis: 200;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    outline-color: var(--primary-clr); /* Set outline color */
+    outline-width: 1px; /* Set outline width */
+    outline-style: solid; /* Ensure the outline is visible by setting a solid style */
+}
+
+.content.serving {
+    width: 730px;
+}
+
+.content.serving h1 {
+    margin-top: 35px;
+}
+
+h1 {
+    margin: 20px;
+    font-size: 40px;
+}
+
+.details {
+    text-align: center;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 50px;
+    margin: 33px;
+    margin-top: 55px;
+    transition: color 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+    color: #973131;
+}
+
+.btn:hover {
+    color: #973131; /* Change icon color on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* pending clients row */
+.content.waiting {
+    position: relative; /* Ensure relative positioning for the parent container */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items at the start of the flex container */
+    align-items: stretch; /* Stretch items to fill the container's width */
+}
+
+.pending.done {
+    background-color: var(--primary-clr);
+    border-radius: 10px;
+    color: aliceblue;
+    margin-top: auto; /* Push the element to the bottom */
+    padding: 10px; /* Adjust padding as needed */
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: center; /* Align items vertically center */
+    width: 100%; /* Ensure element spans full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+
+.services-btn {
+    background: none;
+    border: none;
+    outline: none;
+    margin: 20px;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.services-btn:hover {
+    color: #973131; /* Change icon color on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+
+.pending.done h3 {
+    padding-top: 10px;
+}
+
+
+.details.pending {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: left;
+    height: 80px;
+}
+
+.item.clientnumber {
+    flex: 0 0 20%; /* Grow 0, shrink 0, base 20% */
+    margin: 5px;
+    line-height: 1.5; /* Adjust line-height as needed */
+    background-color: var(--primary-clr);
+    text-align: center; /* Center text horizontally */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 5px;
+    color: aliceblue;
+    justify-content: space-evenly;
+}
+
+.item.details {
+    flex: 1; /* Grow 1, base size */
+    margin: 5px;
+    line-height: 1.5; /* Adjust line-height as needed */
+    /* background-color: #850F8D; */
+    text-align: left;
+    align-items: center; /* Center vertically */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.info {
+    margin: 0; /* Remove default margin from paragraphs */
+    padding: 0; /* Remove default padding from paragraphs */
+}
+
+.info.t {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-aligned {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.right-aligned i {
+    margin-right: 5px; /* Adjust the value as needed */
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust based on your layout needs */
+    padding: 10px; /* Add padding as needed */
+
+}
+
+
+.admin-infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust based on your layout needs */
+    padding: 10px; /* Add padding as needed */
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+
+.admin-info h1 {
+    margin: 0; /* Remove default margin */
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+}
+
+.setting-container {
+    margin-right: 10px; /* Space between the gear icon and notify button */
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.setting button {
+    font-size: 20px;
+}
+
+
+
+
+
+
+/* Reset default styles */
+summary {
+    list-style: none; /* Remove default list-style marker */
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    outline: none; /* Removes default focus outline */
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Custom content for summary */
+summary i.fa-solid {
+    font-size: 18px; /* Adjust icon size as needed */
+    margin-right: 10px; /* Adjust spacing between icon and text */
+    display: inline-block; /* Ensure the icon behaves like an inline-block element */
+    transition: transform 0.5s ease; /* Slow down the rotation transition */
+}
+
+/* Hide default arrow */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Smoothen the animation */
+details[open] > div {
+    animation: expand 0.5s ease; /* Adjust animation duration and easing as needed */
+    max-height: initial; /* Ensure content is fully visible during animation */
+    opacity: 1; /* Ensure content is fully visible during animation */
+}
+
+@keyframes expand {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px; /* Adjust to a sufficiently large value to cover potential content size */
+        opacity: 1;
+    }
+}
+
+/* Rotate animation for gear icon */
+.rotate-360 {
+    transform: rotate(100deg);
+}
+
+
+
+.toggle-button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.toggle-button.active {
+    background-color: var(--primary-clr);
+    color: #fff;
+}
+
+
+
+
+
+
+
+.soundbutton {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.soundbutton .sound {
+    flex: 1 1 45%; /* Adjust the basis to control the grid size */
+}
+
+
+.logout {
+    background-color: var(--primary-clr);
+    height: 50px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+.notify button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.notify button.sound {
+    display: block;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #333;
+}
+
+.notify button:hover {
+    background-color: var(--primary-clr); /* Darker background on hover */
+    color: #fff;
+}
+
+.notify {
+    position: absolute;
+    top: 3%;
+    right: -250px; /* Start off-screen initially */
+    width: 250px; /* Adjust width as needed */
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: right 0.3s ease, opacity 0.3s ease; /* Added transition for right */
+    opacity: 0;
+    z-index: 100; /* Ensure it's above other content */
+    text-align: center;
+    line-height: 1px;
+}
+
+
+.notify.visible {
+    right: 1%; /* Slide in from the right */
+    opacity: 1;
+}
+
+.fa-solid fa-circle-user {
+    margin: 10px;
+    margin-top: 5px;
+}
+
+div.stand {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    text-align: left; /* Align content to the left within the div */
+    z-index: 999; /* Ensure it's above other content if necessary */
+    padding: 10px; /* Optional: Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+img.standing {
+    width: auto;
+    height: 250px; /* Adjust as needed to maintain aspect ratio */
+}
+
+
+.empty {
+    text-align: center;
+    line-height: 0;
+}
+
+.total_waiting {
+    text-transform: uppercase;
+}
+
+.details.done {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 1px; /* Spacing between grid items */
+    padding: 5px; /* Padding for the entire grid */
+    text-align: left;
+    line-height: 1.5;
+}
+
+.details.done  {
+    margin: 0; /* Remove default margin */
+    padding: 15px; /* Padding for each <p> element */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.info.done-earlier, .total_waiting {
+    font-weight: 500;
+}
+
+
+/* Modal */
+.modal-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-items {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-items h4 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.modal-content p {
+    line-height: 0;
+}
+
+.modal-content h4 {
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 30px;
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+}
+
+.admin-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.admin-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.forward-button {
+    border: 1px solid var(--primary-clr);
+    border-radius: 5px;
+    cursor: pointer;
+    background: none;
+    padding: 10px;
+    color: #f0f0f0;
+    font-weight: 600;
+}
+
+.forward-button i {
+    margin-right: 5px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+/* CSS for screens between 461px to 600px (tablets) */
+@media (min-width: 461px) and (max-width: 600px) {
+
+    
+}
+
+@media screen and (max-width: 460px) {
+    /* Add your styles for cellphones here */
+    
+}
+
+
+.ctrl-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 12px;
+    top: 12px;
+}
+
+.client-info {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+.client-info.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

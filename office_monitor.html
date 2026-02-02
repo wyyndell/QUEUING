@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/monitor.css">
+    <title>Monitor</title>
+</head>
+<body>
+    
+    <div class="header">
+        <img src="img/plogo.png" class="imgnav">
+        <h1 class="text">Polytechnic University of the Philippines Unisan</h1>
+        <img src="img/ulogo.png" class="imgnav">
+    </div>
+
+    <div class="monitor-container">
+        <div class="announcement">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="datetime">
+            <br>
+            <h1>Schedule</h1>
+            <p>Monday - Dental Operation</p>
+            <p>08:00 AM to 05:00 PM</p>
+            <br>
+            <p>Monday - Dental Operation</p>
+            <p>08:00 AM to 05:00 PM</p>
+            <br>
+            <div class="card">
+                <div class="container">
+                  <div class="cloud front">
+                    <span class="left-front"></span>
+                    <span class="right-front"></span>
+                  </div>
+                  <span class="sun sunshine"></span>
+                  <span class="sun"></span>
+                  <div class="cloud back">
+                    <span class="left-back"></span>
+                    <span class="right-back"></span>
+                  </div>
+                </div>
+              
+                <div class="card-header">
+                  <span>Philippines<br>Quezon Province</span>
+                  <span id="date">Date</span>
+                </div>
+              
+                <span class="temp" id="time">Time</span>
+              
+                <div class="temp-scale">
+                  <span id="pm-am">PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-container" id="modalContainer">
+        <div class="modal-items" style="display: none;">
+            <div class="cnumber">
+                <h1 id="clientnumber">12</h1>
+            </div>
+            <div class="office">
+                <h2 id="office">Office</h2>
+                <p id="name">Full Name</p>
+                <p id="filter">Filter</p>
+            </div>
+        </div>
+        <img src="img/confetti.gif" alt="confetti" class="confetti">
+    </div>
+
+    <!-- Positioning images at the bottom left and right -->
+    <div class="stand">
+        <img src="img/nut.png" alt="Loud" class="left">
+        <img src="img/wait.png" alt="chair" class="right" >
+    </div>
+
+    <!-- Add audio element for notification sound -->
+    <audio id="notificationSound" src="sound/before.mp3" preload="auto"></audio>
+
+    <!-- Include jQuery and monitor.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/monitor.js"></script>
+
+
+
+</body>
+</html>

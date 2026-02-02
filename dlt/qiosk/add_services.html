@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Services</title>
+    <style>
+        /* Modal */
+        .custom-modal-container {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .custom-modal-items {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .custom-modal-items h4 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .custom-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .custom-modal-content {
+            padding: 10px;
+            margin: 2px;
+            border-radius: 5px;
+        }
+
+        .custom-modal-content p {
+            line-height: 0;
+        }
+
+        .custom-modal-content h4 {
+            margin: 0;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 30px;
+        }
+
+        .custom-admin-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-admin-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .custom-admin-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .custom-forward-button {
+            border: 1px solid #8C52FF;
+            border-radius: 5px;
+            cursor: pointer;
+            background: none;
+            padding: 10px;
+            color: #8C52FF;
+            font-weight: 600;
+        }
+
+        .custom-forward-button i {
+            margin-right: 5px;
+        }
+
+        .custom-modal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .custom-add-close-button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+
+        .custom-add-container {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .custom-add-container.show {
+            max-height: 100px; /* Adjust as needed */
+            opacity: 1;
+        }
+
+        .custom-add-container.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <button id="custom-services">Services</button>
+    <!-- Modal -->
+    <div class="custom-modal-container" id="custom-modalContainer">
+        <div class="custom-modal-items">
+            <button class="custom-modal-close-button" id="custom-modalClose" aria-label="Close">&times;</button>
+            <h4>Admin Details</h4>
+            <div class="custom-modal-content">
+                <div class="custom-modal-header">
+                    <h4 id="custom-admin-name">Services</h4>
+                    <button class="custom-forward-button" id="custom-admin-forward" aria-label="Delete">Delete</button>
+                </div>
+                <p id="custom-admin-office">Office</p>
+                <div class="custom-add-services" id="custom-addServices">
+                    <!-- New custom-add-container elements will be appended here -->
+                    <button id="custom-addButton">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the services button
+        const customServicesButton = document.getElementById('custom-services');
+
+        // Get the modal container
+        const customModalContainer = document.getElementById('custom-modalContainer');
+
+        // Get the modal close button
+        const customModalCloseButton = document.getElementById('custom-modalClose');
+
+        // Get the add button
+        const customAddButton = document.getElementById('custom-addButton');
+
+        // Get the add services container
+        const customAddServices = document.getElementById('custom-addServices');
+
+        // Add click event listener to services button
+        customServicesButton.addEventListener('click', function() {
+            // Display the modal container when services button is clicked
+            customModalContainer.style.display = 'flex';
+        });
+
+        // Add click event listener to modal close button
+        customModalCloseButton.addEventListener('click', function() {
+            // Hide the modal container when close button is clicked
+            customModalContainer.style.display = 'none';
+        });
+
+        // Add click event listener to add button
+        customAddButton.addEventListener('click', function() {
+            // Create a new custom-add-container element
+            const newCustomAddContainer = document.createElement('div');
+            newCustomAddContainer.classList.add('custom-add-container');
+            newCustomAddContainer.innerHTML = `
+                <input type="text" placeholder="Service Name">
+                <button class="custom-add-close-button" aria-label="Close">&times;</button>
+            `;
+
+            // Add click event listener to the close button inside the new custom-add-container
+            newCustomAddContainer.querySelector('.custom-add-close-button').addEventListener('click', function() {
+                newCustomAddContainer.classList.add('fade-out');
+                setTimeout(function() {
+                    newCustomAddContainer.remove();
+                }, 500); // Match the transition duration in CSS
+            });
+
+            // Append the new custom-add-container to the custom-add-services container
+            customAddServices.insertBefore(newCustomAddContainer, customAddButton);
+
+            // Trigger the sliding down animation
+            setTimeout(function() {
+                newCustomAddContainer.classList.add('show');
+            }, 10); // Timeout to allow for initial rendering
+        });
+    </script>
+</body>
+</html>

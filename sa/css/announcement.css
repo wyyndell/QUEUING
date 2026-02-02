@@ -1,0 +1,148 @@
+.announcement, .carousel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    text-align: center; /* Already added */
+}
+
+
+
+.carousel {
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+    height: 100%px; /* Set height to match announcement section */
+    overflow: hidden;
+    margin: 0 auto; /* Center horizontally */
+
+}
+
+
+.carousel-inner {
+    width: 100%;
+    height: 100%; /* Set height to match carousel */
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+    .announcement h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        color: white;
+    }
+
+    .text {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .announcement,
+    .now_serving {
+/*        margin-right: 20px;*/
+        border-radius: 10px;
+/*        padding: 15px;*/
+        min-height: 450px;
+        border: 1px solid #fff;
+        margin: 10px;
+    }
+
+    .announcement {
+        flex: 7;
+    }
+
+    .now_serving {
+        flex: 3;
+        background-color: #fff;
+        padding: 10px;
+        margin-left: 0;
+    }
+
+    .announcement h1,
+    .now_serving h2 {
+        font-size: 24px;
+        text-align: center;
+       
+    }
+
+    .now_serving h2 {
+        padding: 10px;
+    }
+
+    .office {
+        background-color: none;
+        border: 0.5px solid #ccc;
+        padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 2px;
+    }
+
+    .office h1, h3 {
+        text-align: left;
+        padding-left: 10px;
+        margin: 5px; /* Add this line to remove margin */
+    }
+
+    .office h1 {
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+
+
+    .headings {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px; margin-bottom: 20px; 
+    }
+
+    .news-ticker-container {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: block;
+        height: 20px;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .time-container {
+        margin-right: 10px;
+        margin-left: 3px;
+        background-color: #000;
+        color: white;
+        border-radius: 4px;
+        padding: 10px;
+        z-index: 2; /* Ensure time container is in front */
+    }
+
+    .news-ticker {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-start;
+        animation: ticker 20s linear infinite;
+        z-index: 1; /* Ensure news ticker is behind */
+    }
+
+    .news-ticker-container {
+        background-color: #fff;
+        height: 40px;
+    }
+
+    @keyframes ticker {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }

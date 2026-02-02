@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+* {
+    font-family: 'Quicksand', sans-serif;
+    color: #850F8D; /* Text color */
+    font-weight: 1000;
+}
+
+body, html {
+    background-image: url('img/bg.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh; /* Ensure the body takes the full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+
+.sit {
+    position: relative; /* Set the container to be the reference for the absolute positioning */
+}
+
+
+img.sitting {
+    position: absolute; /* Position the element absolutely within the container */
+    bottom: 0; /* Align it to the bottom */
+    right: 0; /* Align it to the right */
+    width: auto; /* Example width for the image */
+    height: 340px; /* Maintain aspect ratio */
+}
+
+.form {
+    display: flex;
+    /* background: linear-gradient(135deg, #615EFC, #fff); */
+    background-color: aliceblue;
+    border: 2px solid #850F8D; /* Border style */
+    flex-wrap: wrap;
+    width: 40%;
+    height: 45%;
+    position: absolute; /* Ensure it can be positioned absolutely */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it */
+    padding: 30px;
+    padding-top: 40px;
+    border-radius: 10px;
+}
+
+
+.item {
+    flex-grow: 1;
+    /* background-color: orange; */
+    flex-basis: 200;
+    margin: 5px;
+}
+
+
+
+.item.num, .item.details{
+
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: center; /* Center align horizontally */
+    justify-content: center; /* Center align vertically if parent container has height */
+    height: 30vh; /* Make the container full viewport height for vertical centering */
+}
+
+input[type="number"] {
+    width: 200px; /* Set a fixed width */
+    height: 200px;
+    padding: 10px; /* Add padding for space inside the input */
+    border: 2px solid #850F8D; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 76px;
+    color: #850F8D; /* Text color */
+    margin: 25px 0; /* Space outside the input (top and bottom) */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    text-align: center; /* Center the text */
+    font-weight: 700; /* Set font-weight to bold */
+}
+
+input[type="number"]:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    outline: none; /* Remove default focus outline */
+    background-color: #e9f5ff; /* Change background color on focus */
+}
+
+label[for="clientnumber"] {
+    font-size: 26px;
+    margin-bottom: 5px; /* Space between label and input */
+    color: #850F8D; /* Text color */
+    font-weight: 700;
+}
+
+
+/* to remove control bar in input type number */
+/* Hide spin buttons in Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide spin buttons in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+
+
+input[type="text"] {
+    width: 90%;
+    height: 30px;
+    margin-bottom: 5px;
+    color: #850F8D; /* Text color */
+    padding: 10px;
+    border: 2px solid #850F8D; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: large;
+    font-weight: 700;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    outline: none; /* Remove default focus outline */
+    background-color: #e9f5ff; /* Change background color on focus */
+}
+
+select {
+    width: 97%;
+    height: 50px; /* Adjust height to match padding of input[type="text"] */
+    margin-bottom: 5px;
+    color: #850F8D; /* Text color */
+    padding: 10px; /* Adjust padding for visual consistency */
+    border: 2px solid #850F8D; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    font-size: large;
+    font-weight: 700;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    background-color: #fff; /* Background color of select element */
+}
+
+select:focus {
+    border-color: #007BFF; /* Change border color on focus */
+    outline: none; /* Remove default focus outline */
+    background-color: #e9f5ff; /* Change background color on focus */
+}
+
+
+.button {
+    position: absolute; /* or position: fixed; */
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10em; /* Space between the buttons */
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 0; /* Remove default padding */
+    outline: none; /* Remove default outline */
+}
+
+button i {
+    font-size: 50px; /* Set icon size */
+}
+
+.headings {
+    position: relative;
+    height: 100vh; /* Ensure the container covers the full viewport height */
+}
+
+.clip {
+    position: absolute;
+    top: 70px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+}
+
+
+
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; /* Ensure modal is in front of all other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: add a blur effect to the background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    z-index: 10000; /* Ensure modal content is in front of the modal background */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

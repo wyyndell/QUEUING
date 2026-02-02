@@ -1,0 +1,359 @@
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the custom checkbox */
+.custom-checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 50px; /* Adjust the size of the checkbox */
+    height: 50px; /* Adjust the size of the checkbox */
+    border: 2px solid #000; /* Adjust the border color and width */
+    border-radius: 8px; /* Adjust the border radius */
+    margin-right: 10px;
+}
+
+/* Style the checkmark inside the custom checkbox */
+.custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Center the checkmark */
+    width: 20px; /* Adjust the size of the checkmark */
+    height: 40px; /* Adjust the size of the checkmark */
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    transform-origin: center; /* Set the transform origin to the center */
+    opacity: 0; /* Hide the checkmark initially */
+}
+
+/* Rotate the checkmark when the checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark:after {
+    display: block;
+    opacity: 1; /* Show the checkmark */
+    transform: translate(-50%, -50%) rotate(45deg); /* Rotate the checkmark */
+}
+
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f7fb;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: none;
+    color: black;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 20%;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 30px;
+    border: 2px solid #888;
+    width: 90%;
+    font-size: 50px;
+}
+
+.modal-content p {
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+
+.modal-btn {
+    display: flex;
+    justify-content: space-around;
+    font-size: 50px;
+}
+
+.modal-btn button {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+
+b, #name, #registrar {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 50px;
+
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 95%;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 50px;
+}
+
+select {
+    width: 100%;
+}
+
+select option {
+    font-size: 25px;
+}
+
+
+
+label{
+    font-size: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.buttons button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 25px;
+    font-size: 50px;
+    background-color: maroon;
+    color: white;
+}
+
+.buttons button:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn_office {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.btn_office button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn_office .info {
+    display: flex;
+}
+
+.btn_office #registrar {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    color: black;
+}
+
+/* Button Styles */
+.btn_office button {
+    display: inline-block;
+    margin: 10px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn_office button div {
+    font-size: 40px;
+}
+
+.btn_office button #name {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.btn_office button.submitted {
+    background-color: maroon;
+    color: white;
+    font-weight: bold;
+}
+
+/* Header Navigation Styles */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.img-container {
+    position: relative;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+.img-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Date and Time Styles */
+datetime {
+    display: flex;
+}
+
+.date-time,
+.time-day {
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    color: var(--black);
+    text-align: left;
+}
+
+.date,
+.time {
+    font-weight: bold;
+}
+
+.date,
+.time,
+.year,
+.day {
+    padding: 0 10px;
+    margin: 0;
+}
+
+.year,
+.day {
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.company-name {
+    font-weight: 600;
+    line-height: 2rem;
+    font-size: 28px;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    color: var(--black);
+}
+
+.welcome {
+    text-align: center;
+    margin-top: 50%;
+}
+
+.welcome h1 {
+    font-size: 100px;
+    line-height: 7rem;
+    color: var(--black);
+}
+
+.welcome p { line-height: 5rem; font-size: 40px;}
+
+/* Responsive Design */
+@media only screen and (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+
+    .btn_office button {
+        width: 100%;
+    }
+    .btn_office #registrar {
+        margin-right: 5px;
+    }
+    .header-nav {
+        display: none;
+    }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 98%;
+    }
+    .btn_office button {
+        width: 100%;
+    }
+    .btn_office #registrar {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        width: 100%;
+    }
+    .btn_office button {
+        width: 100%;
+    }
+    .btn_office #registrar {
+        margin-right: 0;
+    }
+}
